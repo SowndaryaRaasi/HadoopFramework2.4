@@ -1,0 +1,22 @@
+               Assignment 2.4
+
+Explain the importance of Name node in Hadoop cluster
+  NAME NODE:
+    *It holds metadata i.e., information about data present in datanodes.
+    * It consists of two important files:
+                  1.fsimage:It contains All directory structure of HDFS
+                                                 The blocks constituting a file.
+                  2.edits: When any read or write operations take place, the directory structure gets modified.
+                              These modifications are stored in the memory as well as in edits files .
+   *Whenever data is to be retrieved form HDFS, a request is given to the name node.
+     It gives the address of datanodes where the desired data is present.
+  *Likewise when ever some data has to be inserted into it,the namenode tells the address of   data node which is free.
+     It acts like an index holding all the information about all the data in the datanodes.
+  *It also holds the information of the replicated blocks.
+  *Also,when the namenode does not receive heart-beat signals from the data nodes at regular intervals,it considers them to be dead and 
+   any further data is not allowed to be stored in them.
+   That is, the name node has the information of the dead data nodes.
+  *When the name node goes down ,the whole cluster goes down.Even though secondary namenode helps the name node in updating itself, 
+   it cannot replace the namenode.
+  *That is why , the name node has to be a very high end one.
+   
